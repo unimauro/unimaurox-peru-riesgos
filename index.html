@@ -237,7 +237,7 @@
       <div class="two-col">
         <div class="card">
           <h3>Frecuencia sísmica por década</h3>
-          <canvas id="chartSismosDecadas" height="220"></canvas>
+          <div class="chart-wrap"><canvas id="chartSismosDecadas"></canvas></div>
           <p class="muted small">Sismos sentidos M ≥ 5.0. Estimado a partir de catálogo IGP.</p>
         </div>
         <div class="card">
@@ -302,7 +302,7 @@
         </div>
         <div class="card">
           <h3>Temperatura superficial del mar vs promedio histórico</h3>
-          <canvas id="chartTSM" height="260"></canvas>
+          <div class="chart-wrap"><canvas id="chartTSM"></canvas></div>
           <p class="muted small">Anomalía de TSM en la región Niño 1+2 (costa peruana). Estimado a partir de boletines IMARPE/ENFEN.</p>
         </div>
       </div>
@@ -351,7 +351,7 @@
 
       <div class="card">
         <h3>Damnificados por año</h3>
-        <canvas id="chartDamnificados" height="220"></canvas>
+        <div class="chart-wrap"><canvas id="chartDamnificados"></canvas></div>
         <p class="muted small">Series 2000-2024. Fuente: INDECI SINPAD.</p>
       </div>
     </section>
@@ -383,7 +383,7 @@
 
       <div class="card">
         <h3>Temperaturas mínimas históricas</h3>
-        <canvas id="chartHeladas" height="240"></canvas>
+        <div class="chart-wrap"><canvas id="chartHeladas"></canvas></div>
         <p class="muted small">Estaciones SENAMHI en altiplano puneño. Mock data clearly labeled.</p>
       </div>
     </section>
@@ -399,7 +399,7 @@
       <div class="two-col">
         <div class="card">
           <h3>Pérdida de cobertura glaciar 1970–2024</h3>
-          <canvas id="chartGlaciares" height="240"></canvas>
+          <div class="chart-wrap"><canvas id="chartGlaciares"></canvas></div>
           <p class="muted small">Fuente: <a href="https://www.gob.pe/inaigem" target="_blank" rel="noopener">INAIGEM</a>.</p>
         </div>
         <div class="card">
@@ -426,7 +426,7 @@
       <div class="two-col">
         <div class="card">
           <h3>Pérdida de bosque por región</h3>
-          <canvas id="chartDeforestacion" height="260"></canvas>
+          <div class="chart-wrap"><canvas id="chartDeforestacion"></canvas></div>
           <p class="muted small">Fuente: <a href="https://geobosques.minam.gob.pe/" target="_blank" rel="noopener">MINAM Geobosques</a>.</p>
         </div>
         <div class="card">
@@ -462,7 +462,7 @@
       <div class="two-col">
         <div class="card">
           <h3>Lecciones COVID-19 — exceso de mortalidad</h3>
-          <canvas id="chartCovid" height="260"></canvas>
+          <div class="chart-wrap"><canvas id="chartCovid"></canvas></div>
           <p class="muted small">Fuente: SINADEF / MINSA.</p>
         </div>
         <div class="card">
@@ -499,7 +499,7 @@
         </div>
         <div class="card">
           <h3>Accidentes por año</h3>
-          <canvas id="chartViales" height="240"></canvas>
+          <div class="chart-wrap"><canvas id="chartViales"></canvas></div>
         </div>
       </div>
     </section>
@@ -515,7 +515,7 @@
       <div class="two-col">
         <div class="card">
           <h3>Cobertura eléctrica y agua potable por región</h3>
-          <canvas id="chartCobertura" height="280"></canvas>
+          <div class="chart-wrap"><canvas id="chartCobertura"></canvas></div>
           <p class="muted small">Fuente: INEI ENAHO, OSINERGMIN.</p>
         </div>
         <div class="card">
@@ -541,12 +541,12 @@
       <div class="two-col">
         <div class="card">
           <h3>Dependencia de importaciones críticas</h3>
-          <canvas id="chartImportaciones" height="240"></canvas>
+          <div class="chart-wrap"><canvas id="chartImportaciones"></canvas></div>
           <p class="muted small">Fuente: MIDAGRI, SUNAT.</p>
         </div>
         <div class="card">
           <h3>Canasta básica vs eventos globales</h3>
-          <canvas id="chartCanasta" height="240"></canvas>
+          <div class="chart-wrap"><canvas id="chartCanasta"></canvas></div>
           <p class="muted small">IPC alimentos vs precio internacional trigo/petróleo.</p>
         </div>
       </div>
@@ -710,7 +710,7 @@
             <button class="btn primary" id="simPanRun">▶ Simular 180 días</button>
           </div>
           <div class="sim-result card">
-            <canvas id="chartPandemia" height="240"></canvas>
+            <div class="chart-wrap"><canvas id="chartPandemia"></canvas></div>
             <div class="sim-output" id="simPanOut"></div>
           </div>
         </div>

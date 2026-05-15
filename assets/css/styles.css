@@ -221,12 +221,30 @@ h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; }
 
 /* ========== MAP ========== */
 .map {
-  width: 100%; height: 420px;
+  width: 100%; height: 340px;
   background: var(--bg-card);
   border-radius: var(--r-md);
   border: 1px solid var(--border);
 }
-.map.tall { height: 480px; }
+.map.tall { height: 380px; }
+@media (max-width: 720px) { .map, .map.tall { height: 260px; } }
+
+/* ========== CHART CONTAINER ========== */
+/* Forzar altura controlada para que Chart.js no haga crecer el canvas */
+.chart-wrap {
+  position: relative;
+  width: 100%;
+  height: 260px;
+}
+.chart-wrap.sm { height: 200px; }
+.chart-wrap.lg { height: 320px; }
+.card > canvas, .sim-result canvas {
+  max-height: 260px !important;
+}
+@media (max-width: 720px) {
+  .chart-wrap, .chart-wrap.sm, .chart-wrap.lg { height: 220px; }
+  .card > canvas, .sim-result canvas { max-height: 220px !important; }
+}
 
 .map-layers {
   margin-top: 10px;
@@ -424,18 +442,111 @@ h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; }
 .sim-controls .btn.small { width: auto; margin-top: 4px; }
 
 .sim-output {
-  margin-top: 14px; padding: 14px;
-  background: var(--bg); border-radius: var(--r-sm);
+  margin-top: 14px;
   font-size: 0.9rem;
 }
-.sim-output h4 { color: var(--accent); margin-bottom: 8px; }
-.sim-output .metric {
-  display: flex; justify-content: space-between;
-  padding: 6px 0; border-bottom: 1px dashed var(--border);
+.sim-output h4 {
+  color: var(--accent); margin-bottom: 10px; font-size: 1rem;
+  display: flex; align-items: center; gap: 6px;
 }
-.sim-output .metric:last-child { border-bottom: none; }
-.sim-output .metric-label { color: var(--text-muted); }
-.sim-output .metric-value { font-weight: 700; }
+
+/* KPI heroes — grandes números arriba del resultado */
+.sim-heroes {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 8px; margin-bottom: 12px;
+}
+.sim-hero {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  padding: 12px; text-align: center;
+  position: relative; overflow: hidden;
+}
+.sim-hero::before {
+  content: ''; position: absolute; top:0; left:0; right:0; height: 3px;
+  background: var(--accent);
+}
+.sim-hero.crit::before { background: var(--rojo-peru); }
+.sim-hero.warn::before { background: var(--ocre); }
+.sim-hero.ok::before   { background: var(--amazonas); }
+.sim-hero-num {
+  font-size: 1.5rem; font-weight: 800;
+  color: var(--accent);
+  line-height: 1; margin: 2px 0;
+}
+.sim-hero.crit .sim-hero-num { color: var(--rojo-peru); }
+.sim-hero.warn .sim-hero-num { color: var(--ocre); }
+.sim-hero.ok   .sim-hero-num { color: var(--amazonas); }
+.sim-hero-lbl {
+  font-size: 0.7rem; color: var(--text-muted);
+  text-transform: uppercase; letter-spacing: 0.5px;
+  line-height: 1.2;
+}
+.sim-hero-icon { font-size: 1.1rem; margin-bottom: 4px; display:block; }
+
+/* Detalle de métricas (sigue lo que ya había) */
+.sim-detail {
+  background: var(--bg); border-radius: var(--r-sm);
+  padding: 10px 14px; margin-bottom: 10px;
+}
+.sim-detail .metric {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 6px 0; border-bottom: 1px dashed var(--border);
+  font-size: 0.88rem;
+}
+.sim-detail .metric:last-child { border-bottom: none; }
+.sim-detail .metric-label { color: var(--text-muted); }
+.sim-detail .metric-value { font-weight: 700; }
+
+/* Barras comparativas (para canasta básica, etc.) */
+.sim-bars { display: flex; flex-direction: column; gap: 6px; margin: 8px 0; }
+.sim-bar {
+  display: grid; grid-template-columns: 100px 1fr 60px; align-items: center;
+  gap: 8px; font-size: 0.82rem;
+}
+.sim-bar-label { color: var(--text); font-weight: 500; }
+.sim-bar-track {
+  background: var(--border); height: 10px; border-radius: 999px;
+  position: relative; overflow: hidden;
+}
+.sim-bar-fill {
+  position: absolute; top:0; left:0; bottom:0;
+  background: linear-gradient(90deg, var(--ocre), var(--rojo-peru));
+  border-radius: 999px;
+  transition: width 0.4s ease;
+}
+.sim-bar-val { text-align: right; font-weight: 700; color: var(--accent); }
+
+/* Mini-table para listas dentro del simulador */
+.sim-mini-table { width:100%; font-size:0.84rem; margin: 8px 0; }
+.sim-mini-table td { padding: 4px 6px; border-bottom: 1px solid var(--border); }
+.sim-mini-table tr:last-child td { border-bottom: none; }
+.sim-mini-table .num { text-align: right; font-weight: 700; color: var(--accent); }
+
+/* Cascada / timeline temporal (apagón) */
+.sim-cascade { display: flex; flex-direction: column; gap: 6px; margin: 8px 0; }
+.sim-cascade-row {
+  display: grid; grid-template-columns: 60px 1fr; align-items: center;
+  gap: 10px; padding: 6px 8px;
+  background: var(--bg); border-left: 3px solid var(--ocre);
+  border-radius: 0 var(--r-sm) var(--r-sm) 0;
+  font-size: 0.84rem;
+}
+.sim-cascade-row.crit { border-left-color: var(--rojo-peru); }
+.sim-cascade-row.ok { border-left-color: var(--amazonas); }
+.sim-cascade-time { font-weight: 700; color: var(--accent); font-size: 0.78rem; }
+
+/* Disclaimer y meta */
+.sim-meta { font-size: 0.78rem; color: var(--text-dim); margin-top: 6px; }
+.sim-tag {
+  display: inline-block; padding: 2px 8px; border-radius: 999px;
+  font-size: 0.72rem; font-weight: 600;
+  background: var(--accent-soft); color: var(--accent);
+  margin-right: 4px;
+}
+.sim-tag.warn { background: rgba(216,140,42,.18); color: var(--ocre); }
+.sim-tag.crit { background: rgba(200,16,46,.22); color: var(--rojo-peru); }
+.sim-tag.ok   { background: rgba(47,143,79,.22); color: var(--amazonas); }
 
 /* ========== RESILIENCIA ========== */
 .checklist { list-style: none; max-height: 320px; overflow-y: auto; padding-right: 8px; }
