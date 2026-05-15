@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#C8102E" />
+
+  <title>Riesgos y Resiliencia del Perú · Dashboard ciudadano · Sismos, El Niño, Friajes, Huaicos</title>
+  <meta name="description" content="Dashboard interactivo de riesgos de catástrofe y resiliencia social en el Perú: sismos, tsunamis, El Niño Costero, inundaciones, huaicos, friajes, sequías, deforestación amazónica, pandemias, crisis globales. Datos IGP, SENAMHI, INDECI, MINAM, CENEPRED. Simuladores educativos." />
+  <meta name="keywords" content="Perú, riesgos, sismos Perú, IGP, tsunami Perú, El Niño Costero, ENFEN, SENAMHI, INDECI, CENEPRED, MINAM, huaicos, friajes, heladas, deforestación Amazonía, resiliencia, simulador sísmico, defensa civil, preparación emergencia, mochila emergencia" />
+  <meta name="author" content="Carlos Mauro Cárdenas Fernandez (@unimauro)" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow" />
+  <link rel="canonical" href="https://unimauro.github.io/unimaurox-peru-riesgos/" />
+  <link rel="alternate" hreflang="es-PE" href="https://unimauro.github.io/unimaurox-peru-riesgos/" />
+  <link rel="alternate" hreflang="es" href="https://unimauro.github.io/unimaurox-peru-riesgos/" />
+  <link rel="alternate" hreflang="x-default" href="https://unimauro.github.io/unimaurox-peru-riesgos/" />
+
+  <meta name="geo.region" content="PE" />
+  <meta name="geo.placename" content="Lima, Perú" />
+  <meta name="ICBM" content="-12.046374, -77.042793" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_PE" />
+  <meta property="og:site_name" content="Riesgos y Resiliencia del Perú" />
+  <meta property="og:url" content="https://unimauro.github.io/unimaurox-peru-riesgos/" />
+  <meta property="og:title" content="🇵🇪 Riesgos y Resiliencia del Perú" />
+  <meta property="og:description" content="Sismos, tsunamis, El Niño, huaicos, friajes, deforestación, pandemias y crisis globales. Simuladores educativos. Datos IGP, SENAMHI, INDECI, MINAM, CENEPRED." />
+  <meta property="og:image" content="https://unimauro.github.io/unimaurox-peru-riesgos/assets/img/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="🇵🇪 Riesgos y Resiliencia del Perú" />
+  <meta name="twitter:description" content="Dashboard ciudadano de catástrofes y preparación. Sismos · El Niño · Huaicos · Friajes · Simuladores." />
+  <meta name="twitter:image" content="https://unimauro.github.io/unimaurox-peru-riesgos/assets/img/og.png" />
+  <meta name="twitter:creator" content="@unimauro" />
+  <meta name="twitter:site" content="@unimauro" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🇵🇪%3C/text%3E%3C/svg%3E" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://unimauro.github.io/unimaurox-peru-riesgos/#website",
+        "url": "https://unimauro.github.io/unimaurox-peru-riesgos/",
+        "name": "Riesgos y Resiliencia del Perú",
+        "description": "Dashboard interactivo de riesgos de catástrofe y resiliencia social en el Perú, dirigido al ciudadano general.",
+        "inLanguage": "es-PE",
+        "publisher": { "@id": "https://github.com/unimauro" }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://github.com/unimauro",
+        "name": "Carlos Mauro Cárdenas Fernandez",
+        "url": "https://unimauro.github.io/",
+        "sameAs": [
+          "https://github.com/unimauro",
+          "https://twitter.com/unimauro",
+          "https://www.linkedin.com/in/carloscardenasf/"
+        ],
+        "jobTitle": "Engineer · GenAI · AI Agents · Data Science",
+        "address": { "@type": "PostalAddress", "addressCountry": "PE", "addressLocality": "Lima" }
+      },
+      {
+        "@type": "Dataset",
+        "name": "Riesgos del Perú — Sismos, El Niño, Huaicos, Friajes, Deforestación",
+        "description": "Datasets curados sobre amenazas naturales y antropogénicas en el Perú, con cobertura de las 25 regiones.",
+        "url": "https://unimauro.github.io/unimaurox-peru-riesgos/",
+        "license": "https://creativecommons.org/licenses/by/4.0/",
+        "spatialCoverage": { "@type": "Place", "name": "Perú", "geo": { "@type": "GeoCoordinates", "latitude": -9.19, "longitude": -75.0152 } },
+        "keywords": ["Perú", "sismos", "tsunami", "El Niño", "huaicos", "friajes", "deforestación", "pandemia", "resiliencia"],
+        "creator": { "@id": "https://github.com/unimauro" },
+        "isAccessibleForFree": true
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body data-theme="dark">
+
+  <a href="#main" class="skip-link">Saltar al contenido</a>
+
+  <header class="topbar" role="banner">
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="#portada" class="brand">
+      <span class="brand-flag" aria-hidden="true">🇵🇪</span>
+      <span class="brand-text">
+        <strong>Riesgos & Resiliencia</strong>
+        <small>Perú · dashboard ciudadano</small>
+      </span>
+    </a>
+    <div class="topbar-actions">
+      <label class="region-pick" for="globalRegion">
+        <span>Región</span>
+        <select id="globalRegion" aria-label="Filtrar por región"></select>
+      </label>
+      <button class="icon-btn" id="themeToggle" aria-label="Cambiar tema claro/oscuro" title="Cambiar tema">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+      <a class="icon-btn" href="https://github.com/unimauro/unimaurox-peru-riesgos" target="_blank" rel="noopener" aria-label="GitHub" title="Código fuente">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.1.82-.26.82-.58v-2c-3.34.73-4.03-1.61-4.03-1.61-.55-1.4-1.34-1.77-1.34-1.77-1.1-.75.08-.74.08-.74 1.2.09 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.3 3.5 1 .1-.78.42-1.3.76-1.6-2.66-.3-5.47-1.34-5.47-5.94 0-1.31.47-2.39 1.24-3.23-.13-.3-.54-1.52.11-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.65 1.66.24 2.88.12 3.18.77.84 1.24 1.92 1.24 3.23 0 4.61-2.81 5.63-5.49 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.21.69.83.57A12 12 0 0 0 12 .3"/></svg>
+      </a>
+    </div>
+  </header>
+
+  <aside class="sidebar" id="sidebar" role="navigation" aria-label="Secciones">
+    <nav>
+      <a href="#portada" data-section="portada" class="nav-item active"><span class="ico">🏠</span> Portada</a>
+      <a href="#sismos" data-section="sismos" class="nav-item"><span class="ico">🌍</span> Sismos & tsunamis</a>
+      <a href="#nino" data-section="nino" class="nav-item"><span class="ico">🌊</span> El Niño / Niña</a>
+      <a href="#huaicos" data-section="huaicos" class="nav-item"><span class="ico">🌧️</span> Huaicos & inundaciones</a>
+      <a href="#friajes" data-section="friajes" class="nav-item"><span class="ico">❄️</span> Friajes & heladas</a>
+      <a href="#sequia" data-section="sequia" class="nav-item"><span class="ico">🔥</span> Sequías & glaciares</a>
+      <a href="#amazonia" data-section="amazonia" class="nav-item"><span class="ico">🌳</span> Deforestación amazónica</a>
+      <a href="#pandemias" data-section="pandemias" class="nav-item"><span class="ico">🦠</span> Pandemias & salud</a>
+      <a href="#viales" data-section="viales" class="nav-item"><span class="ico">🚗</span> Siniestros viales</a>
+      <a href="#energia" data-section="energia" class="nav-item"><span class="ico">⚡</span> Energía & agua</a>
+      <a href="#globales" data-section="globales" class="nav-item"><span class="ico">🌐</span> Riesgos globales</a>
+      <a href="#simulador" data-section="simulador" class="nav-item highlight"><span class="ico">🎮</span> Simulador</a>
+      <a href="#resiliencia" data-section="resiliencia" class="nav-item"><span class="ico">🛡️</span> Resiliencia</a>
+      <a href="#metodologia" data-section="metodologia" class="nav-item"><span class="ico">📚</span> Metodología</a>
+    </nav>
+    <div class="sidebar-foot">
+      <p>Última actualización: <span id="lastUpdate">—</span></p>
+      <p class="muted">Datos de fuentes oficiales (IGP, SENAMHI, INDECI, MINAM, CENEPRED).</p>
+    </div>
+  </aside>
+
+  <main id="main" class="main">
+
+    <!-- =========== 1. PORTADA =========== -->
+    <section id="portada" class="section active">
+      <div class="hero">
+        <div class="hero-text">
+          <span class="eyebrow">Perú en el mapa del riesgo</span>
+          <h1>Vivimos en uno de los países <em>más expuestos</em> del planeta — y la mayoría no lo sabe.</h1>
+          <p class="lede">Estamos en el Cinturón de Fuego del Pacífico, abrazados por la Corriente de Humboldt, atravesados por los Andes, con la Amazonía al este. Cada año enfrentamos sismos, El Niño, huaicos, friajes, deforestación. Este dashboard te ayuda a entender, explorar y prepararte.</p>
+          <div class="hero-actions">
+            <a href="#sismos" class="btn primary">Explorar riesgos</a>
+            <a href="#simulador" class="btn ghost">🎮 Probar el simulador</a>
+          </div>
+        </div>
+        <div class="hero-map">
+          <div id="mapPortada" class="map" role="img" aria-label="Mapa del Perú con capas de riesgo"></div>
+          <div class="map-layers">
+            <strong>Capas:</strong>
+            <label><input type="checkbox" data-layer="sismos" checked /> Sismos históricos</label>
+            <label><input type="checkbox" data-layer="tsunami" /> Tsunami</label>
+            <label><input type="checkbox" data-layer="nino" /> El Niño</label>
+            <label><input type="checkbox" data-layer="huaicos" /> Huaicos</label>
+            <label><input type="checkbox" data-layer="friajes" /> Friajes</label>
+            <label><input type="checkbox" data-layer="amazonia" /> Deforestación</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="kpi-grid">
+        <div class="kpi">
+          <span class="kpi-num" id="kpiSismosMes">—</span>
+          <span class="kpi-label">sismos en el último mes</span>
+          <span class="kpi-sub">IGP, M ≥ 3.5</span>
+        </div>
+        <div class="kpi">
+          <span class="kpi-num">~70 000</span>
+          <span class="kpi-label">muertos · terremoto Áncash 1970</span>
+          <span class="kpi-sub">peor desastre de Sudamérica del s. XX</span>
+        </div>
+        <div class="kpi">
+          <span class="kpi-num">USD 3.1 B</span>
+          <span class="kpi-label">pérdidas · Niño Costero 2017</span>
+          <span class="kpi-sub">CEPAL/MEF</span>
+        </div>
+        <div class="kpi">
+          <span class="kpi-num">~50 %</span>
+          <span class="kpi-label">cobertura glaciar perdida desde 1970</span>
+          <span class="kpi-sub">INAIGEM</span>
+        </div>
+        <div class="kpi">
+          <span class="kpi-num" id="kpiAlertas">—</span>
+          <span class="kpi-label">alertas SENAMHI vigentes</span>
+          <span class="kpi-sub">estimado · sin API pública estable</span>
+        </div>
+        <div class="kpi">
+          <span class="kpi-num" id="kpiDistritos">—</span>
+          <span class="kpi-label">distritos en emergencia</span>
+          <span class="kpi-sub">INDECI SINPAD</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Elige tu región para ver su perfil de riesgo</h3>
+        <p>Las amenazas en el Perú son radicalmente distintas según dónde vivas: un huaico en Chosica, un friaje en Puno, una inundación amazónica en Ucayali, deslizamientos en Cajamarca o deforestación en San Martín no son comparables.</p>
+        <div class="region-grid" id="regionGrid"></div>
+      </div>
+
+      <div class="card profile-card hidden" id="regionProfile">
+        <h3>Perfil de <span id="regionProfileName">—</span></h3>
+        <div id="regionProfileBody"></div>
+      </div>
+    </section>
+
+    <!-- =========== 2. SISMOS Y MAREMOTOS =========== -->
+    <section id="sismos" class="section">
+      <header class="section-head">
+        <span class="eyebrow">02 · Geofísica</span>
+        <h2>Sismos y maremotos</h2>
+        <p class="lede">El Perú está en la zona de subducción de la placa de Nazca bajo la Sudamericana — la fábrica geológica de terremotos más activa del continente.</p>
+      </header>
+
+      <div class="two-col">
+        <div class="card">
+          <h3>Epicentros históricos relevantes</h3>
+          <div id="mapSismos" class="map tall" aria-label="Mapa de epicentros sísmicos históricos"></div>
+          <p class="muted small">Fuente: <a href="https://www.igp.gob.pe/" target="_blank" rel="noopener">IGP — Instituto Geofísico del Perú</a>, USGS.</p>
+        </div>
+        <div class="card">
+          <h3>Los 5 que cambiaron al Perú</h3>
+          <ul class="timeline" id="sismosTimeline"></ul>
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div class="card">
+          <h3>Frecuencia sísmica por década</h3>
+          <canvas id="chartSismosDecadas" height="220"></canvas>
+          <p class="muted small">Sismos sentidos M ≥ 5.0. Estimado a partir de catálogo IGP.</p>
+        </div>
+        <div class="card">
+          <h3>Tiempo de llegada de tsunami</h3>
+          <p class="small">Tiempo estimado entre un sismo en la fosa peruana y la llegada de la primera ola — basado en cartas de inundación de la <a href="https://www.dhn.mil.pe/" target="_blank" rel="noopener">DHN</a>.</p>
+          <table class="data-table" id="tablaTsunami"></table>
+        </div>
+      </div>
+
+      <div class="card howto">
+        <h3>¿Qué hago si ocurre? — Protocolo Defensa Civil</h3>
+        <div class="howto-grid">
+          <div>
+            <h4>🟢 Antes</h4>
+            <ul>
+              <li>Identifica zonas seguras de tu casa (junto a columnas, lejos de ventanas).</li>
+              <li>Prepara tu mochila de emergencia (ver sección <a href="#resiliencia">Resiliencia</a>).</li>
+              <li>Define un punto de encuentro familiar fuera del edificio.</li>
+              <li>Si vives en costa: conoce tu ruta de evacuación a cota ≥ 30 m.</li>
+            </ul>
+          </div>
+          <div>
+            <h4>🟡 Durante</h4>
+            <ul>
+              <li>Agáchate, cúbrete y agárrate. No corras.</li>
+              <li>Si estás en un edificio alto: NO uses ascensores ni bajes escaleras durante el sismo.</li>
+              <li>Aléjate de ventanas, vidrios y objetos que puedan caer.</li>
+              <li>Si vas conduciendo: detente en lugar abierto, lejos de postes.</li>
+            </ul>
+          </div>
+          <div>
+            <h4>🔴 Después</h4>
+            <ul>
+              <li>Evacúa con calma por la ruta marcada.</li>
+              <li>Si estás en costa: <strong>sube de inmediato a zona alta</strong>. No esperes alarma.</li>
+              <li>Corta gas y electricidad si hay riesgo de fuga.</li>
+              <li>Atiende heridos según prioridad. Llama al 115 (INDECI) o 105 (Policía).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========== 3. EL NIÑO / NIÑA =========== -->
+    <section id="nino" class="section">
+      <header class="section-head">
+        <span class="eyebrow">03 · Oceanografía</span>
+        <h2>Fenómeno El Niño y Niña Costera</h2>
+        <p class="lede">El calentamiento o enfriamiento anómalo del Pacífico ecuatorial dispara lluvias extremas en el norte peruano — o sequías en el sur. Lo monitorea el <a href="http://enfen.gob.pe/" target="_blank" rel="noopener">ENFEN</a>.</p>
+      </header>
+
+      <div class="card">
+        <h3>Timeline de eventos mayores</h3>
+        <div class="timeline-horizontal" id="ninoTimeline"></div>
+      </div>
+
+      <div class="two-col">
+        <div class="card">
+          <h3>Regiones más afectadas</h3>
+          <div id="mapNino" class="map" aria-label="Mapa regiones afectadas por El Niño"></div>
+          <p class="muted small">Fuente: ENFEN, CEPAL, MEF.</p>
+        </div>
+        <div class="card">
+          <h3>Temperatura superficial del mar vs promedio histórico</h3>
+          <canvas id="chartTSM" height="260"></canvas>
+          <p class="muted small">Anomalía de TSM en la región Niño 1+2 (costa peruana). Estimado a partir de boletines IMARPE/ENFEN.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Predicción / probabilidad para el año en curso</h3>
+        <div id="ninoForecast" class="forecast-grid"></div>
+        <p class="muted small">Probabilidades estimadas, no oficiales. Fuente real en boletines ENFEN mensuales.</p>
+      </div>
+    </section>
+
+    <!-- =========== 4. INUNDACIONES Y HUAICOS =========== -->
+    <section id="huaicos" class="section">
+      <header class="section-head">
+        <span class="eyebrow">04 · Hidrología</span>
+        <h2>Inundaciones y huaicos</h2>
+        <p class="lede">Cada temporada de lluvias (enero-marzo en costa/sierra; febrero-mayo en selva) reactiva quebradas que llevan décadas dormidas y desborda ríos amazónicos que se mueven kilómetros.</p>
+      </header>
+
+      <div class="two-col">
+        <div class="card">
+          <h3>Distritos con mayor recurrencia de huaicos</h3>
+          <div id="mapHuaicos" class="map" aria-label="Mapa distritos con huaicos recurrentes"></div>
+          <p class="muted small">Fuente: <a href="https://www.cenepred.gob.pe/" target="_blank" rel="noopener">CENEPRED</a> + <a href="https://sinpad.indeci.gob.pe/" target="_blank" rel="noopener">INDECI SINPAD</a>.</p>
+        </div>
+        <div class="card">
+          <h3>Quebradas activas críticas</h3>
+          <ul class="risk-list" id="quebradasList"></ul>
+        </div>
+      </div>
+
+      <div class="three-col">
+        <div class="card">
+          <h4>🏔️ Sierra · Deslizamientos</h4>
+          <p>Cajamarca, Áncash y Cusco concentran zonas de geología inestable + alta pluviosidad. El deslizamiento de Mayunmarca (Áncash, 1974) movió 1.6 km³ de roca.</p>
+        </div>
+        <div class="card">
+          <h4>🌊 Selva · Crecidas amazónicas</h4>
+          <p>Ríos Ucayali, Amazonas, Huallaga y Mayo crecen en febrero-mayo. Afectan Pucallpa, Iquitos, Tarapoto, Yurimaguas. Monitoreo: <a href="https://www.senamhi.gob.pe/" target="_blank" rel="noopener">SENAMHI hidrología</a>.</p>
+        </div>
+        <div class="card">
+          <h4>🏙️ Costa · Quebradas activadas</h4>
+          <p>Lima Este (Chosica, Chaclacayo, Huachipa) tiene 50+ quebradas críticas. Cualquier Niño moderado las reactiva.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Damnificados por año</h3>
+        <canvas id="chartDamnificados" height="220"></canvas>
+        <p class="muted small">Series 2000-2024. Fuente: INDECI SINPAD.</p>
+      </div>
+    </section>
+
+    <!-- =========== 5. FRIAJES Y HELADAS =========== -->
+    <section id="friajes" class="section">
+      <header class="section-head">
+        <span class="eyebrow">05 · Climatología</span>
+        <h2>Friajes y heladas</h2>
+        <p class="lede">Dos fenómenos distintos: las <strong>heladas</strong> golpean la sierra sur entre mayo y agosto; los <strong>friajes</strong> son irrupciones de aire antártico en la selva entre junio y agosto.</p>
+      </header>
+
+      <div class="two-col">
+        <div class="card">
+          <h3>Mapa diferenciado</h3>
+          <div id="mapFriajes" class="map" aria-label="Mapa friajes vs heladas"></div>
+        </div>
+        <div class="card">
+          <h3>Regiones críticas</h3>
+          <ul class="risk-list">
+            <li><strong>Puno</strong> · heladas extremas (-20°C en altiplano), mortalidad ganado camélidos</li>
+            <li><strong>Cusco / Apurímac</strong> · pérdida de cultivos altoandinos</li>
+            <li><strong>Huancavelica / Pasco</strong> · mortalidad infantil neumonías</li>
+            <li><strong>Madre de Dios / Ucayali</strong> · friajes amazónicos, golpe a flora/fauna tropical</li>
+          </ul>
+          <p class="muted small">Fuente: INDECI, MINSA.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Temperaturas mínimas históricas</h3>
+        <canvas id="chartHeladas" height="240"></canvas>
+        <p class="muted small">Estaciones SENAMHI en altiplano puneño. Mock data clearly labeled.</p>
+      </div>
+    </section>
+
+    <!-- =========== 6. SEQUÍAS Y ESTRÉS HÍDRICO =========== -->
+    <section id="sequia" class="section">
+      <header class="section-head">
+        <span class="eyebrow">06 · Recursos hídricos</span>
+        <h2>Sequías, glaciares y estrés hídrico</h2>
+        <p class="lede">El Perú perdió aproximadamente la <strong>mitad</strong> de su cobertura glaciar desde 1970. Esto compromete el agua que bebe Lima y que riega los valles costeros.</p>
+      </header>
+
+      <div class="two-col">
+        <div class="card">
+          <h3>Pérdida de cobertura glaciar 1970–2024</h3>
+          <canvas id="chartGlaciares" height="240"></canvas>
+          <p class="muted small">Fuente: <a href="https://www.gob.pe/inaigem" target="_blank" rel="noopener">INAIGEM</a>.</p>
+        </div>
+        <div class="card">
+          <h3>Estado de embalses principales</h3>
+          <ul class="risk-list" id="embalsesList"></ul>
+          <p class="muted small">Estimados. Fuente real: <a href="https://www.ana.gob.pe/" target="_blank" rel="noopener">ANA</a>.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Estrés hídrico por región</h3>
+        <div id="mapSequia" class="map" aria-label="Mapa de estrés hídrico"></div>
+      </div>
+    </section>
+
+    <!-- =========== 7. DEFORESTACIÓN AMAZÓNICA =========== -->
+    <section id="amazonia" class="section">
+      <header class="section-head">
+        <span class="eyebrow">07 · Amazonía</span>
+        <h2>Deforestación y riesgos amazónicos</h2>
+        <p class="lede">Ucayali, San Martín, Madre de Dios y Loreto perdieron juntas más de 2 millones de hectáreas de bosque desde 2001. La minería ilegal en Madre de Dios contamina ríos con mercurio.</p>
+      </header>
+
+      <div class="two-col">
+        <div class="card">
+          <h3>Pérdida de bosque por región</h3>
+          <canvas id="chartDeforestacion" height="260"></canvas>
+          <p class="muted small">Fuente: <a href="https://geobosques.minam.gob.pe/" target="_blank" rel="noopener">MINAM Geobosques</a>.</p>
+        </div>
+        <div class="card">
+          <h3>Mapa de pérdida acumulada</h3>
+          <div id="mapAmazonia" class="map" aria-label="Mapa de deforestación amazónica"></div>
+        </div>
+      </div>
+
+      <div class="three-col">
+        <div class="card">
+          <h4>⛏️ Minería ilegal</h4>
+          <p>Madre de Dios: ~100 mil ha degradadas, mercurio en sangre de poblaciones indígenas (estudios CINCIA, 2019-2024).</p>
+        </div>
+        <div class="card">
+          <h4>🔥 Incendios forestales</h4>
+          <p>Picos en agosto-octubre. 2024 fue uno de los años más críticos del último decenio (focos detectados por SENAMHI).</p>
+        </div>
+        <div class="card">
+          <h4>🪓 Tala ilegal</h4>
+          <p>Loreto y Ucayali. Conflictos con líderes indígenas — Edwin Chota (Saweto, 2014) y casos posteriores.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========== 8. PANDEMIAS Y RESILIENCIA SANITARIA =========== -->
+    <section id="pandemias" class="section">
+      <header class="section-head">
+        <span class="eyebrow">08 · Salud pública</span>
+        <h2>Pandemias y resiliencia sanitaria</h2>
+        <p class="lede">Durante COVID-19, Perú tuvo una de las tasas de mortalidad per cápita más altas del mundo. Capacidad UCI, oxígeno y atención primaria fueron el cuello de botella.</p>
+      </header>
+
+      <div class="two-col">
+        <div class="card">
+          <h3>Lecciones COVID-19 — exceso de mortalidad</h3>
+          <canvas id="chartCovid" height="260"></canvas>
+          <p class="muted small">Fuente: SINADEF / MINSA.</p>
+        </div>
+        <div class="card">
+          <h3>Capacidad hospitalaria por región</h3>
+          <div id="capHospitalaria"></div>
+          <p class="muted small">Camas UCI por 100 000 hab. Estimados MINSA.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Otros riesgos sanitarios activos</h3>
+        <ul class="risk-list">
+          <li><strong>Dengue</strong> — brote 2023-24 con récord histórico de casos (>250 mil).</li>
+          <li><strong>Fiebre amarilla</strong> — selva alta, vacunación obligatoria para viajeros.</li>
+          <li><strong>Malaria</strong> — focos persistentes en Loreto.</li>
+          <li><strong>Tuberculosis</strong> — Lima Metropolitana concentra cepas MDR (multirresistentes).</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- =========== 9. SINIESTROS VIALES =========== -->
+    <section id="viales" class="section">
+      <header class="section-head">
+        <span class="eyebrow">09 · Movilidad</span>
+        <h2>Siniestros viales e infraestructura</h2>
+        <p class="lede">La Panamericana Sur, la Carretera Central y la Interoceánica son las arterias del Perú — y también sus tramos más letales.</p>
+      </header>
+
+      <div class="two-col">
+        <div class="card">
+          <h3>Carreteras más peligrosas</h3>
+          <ul class="risk-list" id="viasList"></ul>
+          <p class="muted small">Fuente: <a href="https://www.gob.pe/sutran" target="_blank" rel="noopener">SUTRAN</a>, MTC, PNP.</p>
+        </div>
+        <div class="card">
+          <h3>Accidentes por año</h3>
+          <canvas id="chartViales" height="240"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========== 10. ENERGÍA Y AGUA =========== -->
+    <section id="energia" class="section">
+      <header class="section-head">
+        <span class="eyebrow">10 · Servicios críticos</span>
+        <h2>Energía, agua y servicios básicos</h2>
+        <p class="lede">El SEIN concentra la electricidad nacional en pocos puntos de falla. SEDAPAL depende de la Atarjea, que depende del Rímac, que depende de los glaciares.</p>
+      </header>
+
+      <div class="two-col">
+        <div class="card">
+          <h3>Cobertura eléctrica y agua potable por región</h3>
+          <canvas id="chartCobertura" height="280"></canvas>
+          <p class="muted small">Fuente: INEI ENAHO, OSINERGMIN.</p>
+        </div>
+        <div class="card">
+          <h3>Puntos críticos del SEIN</h3>
+          <ul class="risk-list">
+            <li>Mantaro — concentra hidroeléctricas SEIN central</li>
+            <li>Sobrecarga de la línea 500 kV Mantaro–Socabaya</li>
+            <li>Atentados terroristas históricos a torres (años 80-90)</li>
+            <li>Vulnerabilidad a sequías que reducen generación hidro</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========== 11. RIESGOS GLOBALES =========== -->
+    <section id="globales" class="section">
+      <header class="section-head">
+        <span class="eyebrow">11 · Geopolítica & mercados</span>
+        <h2>Riesgos globales que pegan en el bolsillo peruano</h2>
+        <p class="lede">El Perú importa ~90 % del trigo, casi toda la urea (fertilizante) y depende del cobre como principal exportación. Una guerra al otro lado del mundo se siente en el precio del pan.</p>
+      </header>
+
+      <div class="two-col">
+        <div class="card">
+          <h3>Dependencia de importaciones críticas</h3>
+          <canvas id="chartImportaciones" height="240"></canvas>
+          <p class="muted small">Fuente: MIDAGRI, SUNAT.</p>
+        </div>
+        <div class="card">
+          <h3>Canasta básica vs eventos globales</h3>
+          <canvas id="chartCanasta" height="240"></canvas>
+          <p class="muted small">IPC alimentos vs precio internacional trigo/petróleo.</p>
+        </div>
+      </div>
+
+      <div class="three-col">
+        <div class="card">
+          <h4>🌾 Guerra Rusia-Ucrania (2022→)</h4>
+          <p>Trigo, fertilizantes (urea), gas → subió pan, fideos y fertilizó la crisis del agro 2022. Reducción de campaña de siembra.</p>
+        </div>
+        <div class="card">
+          <h4>🛢️ Medio Oriente</h4>
+          <p>Conflictos suben petróleo → combustibles, transporte, GLP doméstico, fletes marítimos.</p>
+        </div>
+        <div class="card">
+          <h4>🇨🇳 China</h4>
+          <p>Principal socio comercial (cobre, harina de pescado). Una desaceleración china = recesión peruana.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========== 12. SIMULADOR =========== -->
+    <section id="simulador" class="section">
+      <header class="section-head">
+        <span class="eyebrow">12 · Pieza estrella</span>
+        <h2>🎮 Simulador de escenarios — "¿Qué pasaría si...?"</h2>
+        <p class="lede">Elige un escenario, ajusta los parámetros y mira el impacto estimado en tiempo real. <strong>Modelos educativos simplificados.</strong></p>
+      </header>
+
+      <div class="sim-tabs" role="tablist">
+        <button class="sim-tab active" data-sim="sismo" role="tab">🌍 Sismo</button>
+        <button class="sim-tab" data-sim="tsunami" role="tab">🌊 Tsunami</button>
+        <button class="sim-tab" data-sim="nino" role="tab">☀️ El Niño</button>
+        <button class="sim-tab" data-sim="alimentaria" role="tab">🌾 Crisis alimentaria</button>
+        <button class="sim-tab" data-sim="pandemia" role="tab">🦠 Pandemia (SEIR)</button>
+        <button class="sim-tab" data-sim="apagon" role="tab">⚡ Apagón</button>
+      </div>
+
+      <div class="sim-disclaimer">
+        ⚠️ <strong>Modelo educativo simplificado.</strong> No usar para toma de decisiones operativas. Las fuentes técnicas están en la sección <a href="#metodologia">Metodología</a>.
+      </div>
+
+      <!-- 12.1 Simulador Sísmico -->
+      <div class="sim-panel active" data-sim-panel="sismo">
+        <div class="sim-grid">
+          <div class="sim-controls card">
+            <h3>Parámetros</h3>
+            <label>Ciudad / epicentro
+              <select id="simSismoCity"></select>
+            </label>
+            <label>Magnitud (Mw): <output id="simSismoMagOut">7.5</output>
+              <input type="range" id="simSismoMag" min="5.0" max="9.0" step="0.1" value="7.5" />
+            </label>
+            <label>Profundidad (km): <output id="simSismoDepOut">30</output>
+              <input type="range" id="simSismoDep" min="5" max="200" step="5" value="30" />
+            </label>
+            <label>Hora
+              <select id="simSismoHora">
+                <option value="dia">Día (factor 1.0)</option>
+                <option value="noche">Noche (factor 1.4 — más víctimas)</option>
+              </select>
+            </label>
+            <button class="btn primary" id="simSismoRun">▶ Simular</button>
+            <button class="btn ghost small" id="simSismoCompare">Comparar con Pisco 2007</button>
+            <button class="btn ghost small" id="simSismoShare">🔗 Compartir</button>
+          </div>
+          <div class="sim-result card">
+            <div id="mapSimSismo" class="map" aria-label="Resultado simulación sísmica"></div>
+            <div class="sim-output" id="simSismoOut"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 12.2 Simulador Tsunami -->
+      <div class="sim-panel" data-sim-panel="tsunami">
+        <div class="sim-grid">
+          <div class="sim-controls card">
+            <h3>Parámetros</h3>
+            <label>Epicentro frente a
+              <select id="simTsunamiOrigin"></select>
+            </label>
+            <label>Magnitud (Mw): <output id="simTsunamiMagOut">8.5</output>
+              <input type="range" id="simTsunamiMag" min="7.0" max="9.5" step="0.1" value="8.5" />
+            </label>
+            <label>Ciudad objetivo
+              <select id="simTsunamiTarget"></select>
+            </label>
+            <button class="btn primary" id="simTsunamiRun">▶ Simular</button>
+          </div>
+          <div class="sim-result card">
+            <div id="mapSimTsunami" class="map" aria-label="Resultado simulación tsunami"></div>
+            <div class="sim-output" id="simTsunamiOut"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 12.3 Simulador Niño -->
+      <div class="sim-panel" data-sim-panel="nino">
+        <div class="sim-grid">
+          <div class="sim-controls card">
+            <h3>Parámetros</h3>
+            <label>Intensidad ENSO
+              <select id="simNinoInt">
+                <option value="debil">Débil</option>
+                <option value="moderado" selected>Moderado</option>
+                <option value="fuerte">Fuerte</option>
+                <option value="extraordinario">Extraordinario (como 1998 o 2017)</option>
+              </select>
+            </label>
+            <label>Mes de inicio
+              <select id="simNinoMes">
+                <option>Octubre</option><option selected>Noviembre</option>
+                <option>Diciembre</option><option>Enero</option>
+              </select>
+            </label>
+            <button class="btn primary" id="simNinoRun">▶ Simular</button>
+          </div>
+          <div class="sim-result card">
+            <div class="sim-output" id="simNinoOut"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 12.4 Crisis alimentaria -->
+      <div class="sim-panel" data-sim-panel="alimentaria">
+        <div class="sim-grid">
+          <div class="sim-controls card">
+            <h3>Shock externo</h3>
+            <label>Tipo de shock
+              <select id="simAlimShock">
+                <option value="guerra">Guerra ampliada en Europa del Este</option>
+                <option value="canal">Cierre del Canal de Panamá o Suez</option>
+                <option value="embargo">Embargo a fertilizantes (urea)</option>
+                <option value="sequia">Sequía global cerealera</option>
+              </select>
+            </label>
+            <label>Duración (meses): <output id="simAlimDurOut">6</output>
+              <input type="range" id="simAlimDur" min="1" max="18" step="1" value="6" />
+            </label>
+            <button class="btn primary" id="simAlimRun">▶ Simular</button>
+          </div>
+          <div class="sim-result card">
+            <div class="sim-output" id="simAlimOut"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 12.5 Pandemia SEIR -->
+      <div class="sim-panel" data-sim-panel="pandemia">
+        <div class="sim-grid">
+          <div class="sim-controls card">
+            <h3>Parámetros epidemiológicos</h3>
+            <label>R₀ (reproducción básica): <output id="simPanR0Out">2.5</output>
+              <input type="range" id="simPanR0" min="0.8" max="6" step="0.1" value="2.5" />
+            </label>
+            <label>Letalidad (%): <output id="simPanLetOut">1.0</output>
+              <input type="range" id="simPanLet" min="0.05" max="10" step="0.05" value="1.0" />
+            </label>
+            <label>Capacidad UCI activada (%): <output id="simPanUCIOut">100</output>
+              <input type="range" id="simPanUCI" min="50" max="300" step="10" value="100" />
+            </label>
+            <button class="btn primary" id="simPanRun">▶ Simular 180 días</button>
+          </div>
+          <div class="sim-result card">
+            <canvas id="chartPandemia" height="240"></canvas>
+            <div class="sim-output" id="simPanOut"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 12.6 Apagón -->
+      <div class="sim-panel" data-sim-panel="apagon">
+        <div class="sim-grid">
+          <div class="sim-controls card">
+            <h3>Parámetros del corte</h3>
+            <label>Zona afectada
+              <select id="simApagonZona">
+                <option>Lima Metropolitana</option>
+                <option>Norte (Trujillo, Chiclayo, Piura)</option>
+                <option>Sur (Arequipa, Cusco, Puno)</option>
+                <option>Selva (Iquitos, Pucallpa)</option>
+                <option>Nacional</option>
+              </select>
+            </label>
+            <label>Duración (horas): <output id="simApagonDurOut">12</output>
+              <input type="range" id="simApagonDur" min="1" max="72" step="1" value="12" />
+            </label>
+            <label>Época del año
+              <select id="simApagonEpoca">
+                <option>Verano (calor, demanda alta)</option>
+                <option>Invierno (sierra, friaje)</option>
+              </select>
+            </label>
+            <button class="btn primary" id="simApagonRun">▶ Simular</button>
+          </div>
+          <div class="sim-result card">
+            <div class="sim-output" id="simApagonOut"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========== 13. RESILIENCIA SOCIAL =========== -->
+    <section id="resiliencia" class="section">
+      <header class="section-head">
+        <span class="eyebrow">13 · Acción ciudadana</span>
+        <h2>🛡️ Resiliencia social y preparación</h2>
+        <p class="lede">Prepararse no es paranoia: es lo que separa una emergencia incómoda de una tragedia. Empieza con esta lista.</p>
+      </header>
+
+      <div class="two-col">
+        <div class="card">
+          <h3>🎒 Mochila de emergencia — checklist</h3>
+          <p class="muted small">Marca lo que ya tienes. Se guarda en tu navegador.</p>
+          <ul class="checklist" id="mochilaChecklist"></ul>
+          <div class="progress"><div class="progress-bar" id="mochilaProgress"></div></div>
+          <p class="small" id="mochilaCount">0 / 0</p>
+        </div>
+
+        <div class="card">
+          <h3>📄 Plan familiar de emergencia</h3>
+          <p>Genera un PDF con tu plan: punto de encuentro, contactos, ruta de evacuación, lista de medicación.</p>
+          <form id="planForm" class="plan-form">
+            <label>Apellido familiar <input type="text" id="planFamilia" placeholder="Ej. Familia Cárdenas" /></label>
+            <label>Dirección <input type="text" id="planDireccion" placeholder="Av. ... distrito ..." /></label>
+            <label>Punto de encuentro 1 <input type="text" id="planPE1" placeholder="Parque más cercano" /></label>
+            <label>Punto de encuentro 2 (fuera del distrito) <input type="text" id="planPE2" /></label>
+            <label>Contacto fuera de zona (familiar en otra ciudad) <input type="text" id="planContacto" /></label>
+            <label>Medicación crítica de la familia <textarea id="planMed" rows="2"></textarea></label>
+            <button type="submit" class="btn primary">📄 Descargar PDF</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div class="card">
+          <h3>📞 Directorio de emergencia</h3>
+          <ul class="emergency-list">
+            <li><strong>105</strong> — Policía Nacional del Perú</li>
+            <li><strong>106</strong> — SAMU (emergencias médicas)</li>
+            <li><strong>115</strong> — INDECI (Defensa Civil)</li>
+            <li><strong>116</strong> — Bomberos</li>
+            <li><strong>1818</strong> — MININTER (denuncias)</li>
+            <li><strong>100</strong> — Línea Mujer / violencia de género</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>🗓️ Simulacros nacionales</h3>
+          <ul class="risk-list" id="simulacrosList"></ul>
+          <p class="muted small">Calendario oficial: <a href="https://www.gob.pe/indeci" target="_blank" rel="noopener">INDECI</a>.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>🧠 Quiz · ¿Qué tan preparado estás?</h3>
+        <p class="muted small">8 preguntas. Te decimos tu nivel de resiliencia ciudadana.</p>
+        <div id="quizContainer"></div>
+      </div>
+    </section>
+
+    <!-- =========== 14. METODOLOGÍA =========== -->
+    <section id="metodologia" class="section">
+      <header class="section-head">
+        <span class="eyebrow">14 · Transparencia</span>
+        <h2>📚 Metodología, fuentes y licencias</h2>
+        <p class="lede">Todo lo que ves aquí se puede auditar, descargar y mejorar. Las fuentes son oficiales o están claramente etiquetadas como estimaciones.</p>
+      </header>
+
+      <div class="card">
+        <h3>Fuentes principales</h3>
+        <table class="data-table">
+          <thead><tr><th>Tema</th><th>Fuente</th><th>Enlace</th></tr></thead>
+          <tbody>
+            <tr><td>Sismos</td><td>IGP · USGS</td><td><a href="https://www.igp.gob.pe/" target="_blank" rel="noopener">igp.gob.pe</a></td></tr>
+            <tr><td>Tsunamis</td><td>DHN — Marina de Guerra</td><td><a href="https://www.dhn.mil.pe/" target="_blank" rel="noopener">dhn.mil.pe</a></td></tr>
+            <tr><td>Clima · El Niño</td><td>SENAMHI · ENFEN · IMARPE</td><td><a href="https://www.senamhi.gob.pe/" target="_blank" rel="noopener">senamhi.gob.pe</a></td></tr>
+            <tr><td>Glaciares</td><td>INAIGEM</td><td><a href="https://www.gob.pe/inaigem" target="_blank" rel="noopener">gob.pe/inaigem</a></td></tr>
+            <tr><td>Agua</td><td>ANA · SEDAPAL</td><td><a href="https://www.ana.gob.pe/" target="_blank" rel="noopener">ana.gob.pe</a></td></tr>
+            <tr><td>Emergencias</td><td>INDECI SINPAD · CENEPRED</td><td><a href="https://sinpad.indeci.gob.pe/" target="_blank" rel="noopener">sinpad.indeci.gob.pe</a></td></tr>
+            <tr><td>Salud</td><td>MINSA · SINADEF</td><td><a href="https://www.gob.pe/minsa" target="_blank" rel="noopener">gob.pe/minsa</a></td></tr>
+            <tr><td>Economía · comercio</td><td>BCRP · INEI · MIDAGRI · SUNAT</td><td><a href="https://estadisticas.bcrp.gob.pe/" target="_blank" rel="noopener">estadisticas.bcrp.gob.pe</a></td></tr>
+            <tr><td>Tránsito</td><td>MTC · SUTRAN · PNP</td><td><a href="https://www.gob.pe/sutran" target="_blank" rel="noopener">gob.pe/sutran</a></td></tr>
+            <tr><td>Energía</td><td>OSINERGMIN · COES-SINAC</td><td><a href="https://www.osinergmin.gob.pe/" target="_blank" rel="noopener">osinergmin.gob.pe</a></td></tr>
+            <tr><td>Deforestación</td><td>MINAM Geobosques</td><td><a href="https://geobosques.minam.gob.pe/" target="_blank" rel="noopener">geobosques.minam.gob.pe</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="two-col">
+        <div class="card">
+          <h3>Modelos del simulador</h3>
+          <ul>
+            <li><strong>Sísmico:</strong> atenuación tipo GMPE simplificada (Joyner–Boore log-linear) con coeficientes calibrados a sismos peruanos. Solo educativo.</li>
+            <li><strong>Tsunami:</strong> tiempo de arribo por distancia y profundidad media de la fosa (5 km), velocidad onda √(g·h). Altura de inundación: factor empírico por magnitud y batimetría costera local (cartas DHN).</li>
+            <li><strong>Pandemia:</strong> SEIR discreto, paso diario, parámetros R₀ / γ / σ / CFR ajustables. Población urbana del Perú ~25M expuesta.</li>
+            <li><strong>Crisis alimentaria:</strong> elasticidades históricas precio internacional → IPC alimentos peruano (BCRP, 2008-2024).</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Licencias</h3>
+          <p><strong>Datos:</strong> CC BY 4.0 — atribución a este proyecto + fuentes originales.<br>
+          <strong>Código:</strong> MIT.</p>
+          <p>Issues, PRs y contribuciones son bienvenidos: <a href="https://github.com/unimauro/unimaurox-peru-riesgos" target="_blank" rel="noopener">github.com/unimauro/unimaurox-peru-riesgos</a>.</p>
+          <h4>Extensibilidad a otros países</h4>
+          <p class="small">La arquitectura de datos es país-agnóstica (<code>country: "PE"</code>). Próximamente: Chile, Ecuador, Colombia, Bolivia.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>Hecho por <a href="https://unimauro.github.io/" target="_blank" rel="noopener">Carlos Mauro Cárdenas</a> · <a href="https://github.com/unimauro/unimaurox-peru-riesgos" target="_blank" rel="noopener">código fuente</a> · CC BY 4.0 (datos) · MIT (código)</p>
+      <p class="muted small">Construido con HTML/CSS/JS vanilla. Sin backend. Funciona en GitHub Pages.</p>
+    </footer>
+
+  </main>
+
+  <!-- Librerías vía CDN -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <!-- App -->
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/sections/portada.js"></script>
+  <script src="assets/js/sections/sismos.js"></script>
+  <script src="assets/js/sections/nino.js"></script>
+  <script src="assets/js/sections/huaicos.js"></script>
+  <script src="assets/js/sections/friajes.js"></script>
+  <script src="assets/js/sections/sequia.js"></script>
+  <script src="assets/js/sections/amazonia.js"></script>
+  <script src="assets/js/sections/pandemias.js"></script>
+  <script src="assets/js/sections/viales.js"></script>
+  <script src="assets/js/sections/energia.js"></script>
+  <script src="assets/js/sections/globales.js"></script>
+  <script src="assets/js/sections/simulador.js"></script>
+  <script src="assets/js/sections/resiliencia.js"></script>
+  <script src="assets/js/sections/boot.js"></script>
+</body>
+</html>
